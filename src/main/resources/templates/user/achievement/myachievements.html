@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="stylesheet" type="text/css" href="/css/test.css" />
+<link rel="stylesheet" type="text/css" href="/css/main_style.css" />
+<link rel="stylesheet" type="text/css" href="/css/top_style.css" />
+</head>
+<body>
+	<header th:replace="user/fragments/top :: top"></header>
+	<aside th:replace="user/fragments/menu :: menu"></aside>
+	
+	<section id="content">
+		<section class="post">
+			<h1>Moje achievmenty</h1>
+				
+
+			<h3>Zdobyte</h3>
+				<table>
+					<tr th:each="i : ${achievementList}">
+						<td th:text="${i.name}"></td>
+						<td th:text="${i.points}"></td>
+						<td th:text="${i.imgurl}"></td>
+						<td th:text="${i.group}"></td>
+						<td th:text="${i.description}"></td>
+						<td th:text="${i.date}"></td>
+					</tr>
+				</table>
+				
+			<h3>W trakcie</h3>
+				<table>
+					<tr th:each="i : ${aInPorgressList}">
+						<td th:text="${i.name}"></td>
+						<td th:text="${i.points}"></td>
+						<td th:text="${i.imgurl}"></td>
+						<td th:text="${i.group}"></td>
+						<td th:text="${i.description}"></td>
+						<td th:text="${i.current}"></td>
+						<td th:text="${i.max}"></td>
+						<td>
+							<p th:each="p : ${i.places}">
+								<a href="" th:text="${p.name}"></a>
+							</p>
+						</td>
+					</tr>
+				</table>
+		</section>
+	</section>
+</body>
+</html>

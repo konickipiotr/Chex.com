@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/test.css" />
+<link rel="stylesheet" type="text/css" href="/css/main_style.css" />
+<link rel="stylesheet" type="text/css" href="/css/top_style.css" />
+</head>
+<body>
+	<header th:replace="admin/fragments/top :: top"></header>
+	<aside th:replace="admin/fragments/menu :: menu"></aside>
+	<section id="content">
+	
+		<h1>Nowe Osiągnięcie</h1>
+		<p th:text="${message}"></p>
+		<a th:href="@{/admin/achievement/add}">Nowe Osiągnięcie</a><br>
+		<div style="width: 60%; float: left">
+			<form th:acton="@{/admin/achievement/add}" method="post" th:object="${achievement}">
+				<label for="name">Nazwa</label>
+				<input type="text" id="name" name="name" th:field="*{name}"><br>
+				
+				<label for="points">Punkty</label>
+				<input type="number" min="0" step="1" id="points" name="points" th:field="*{points}"><br>
+				
+				<label for="imgurl">imgurl</label>
+				<input type="text" id="imgurl" name="imgurl" th:field="*{imgurl}"><br>
+				
+				<label for="description">Opis</label>
+				<textarea id="description" name="description" th:field="*{description}"></textarea><br><br>
+				
+				<button type="submit">Dodaj</button>	
+			</form>
+			<div th:each="l : ${achievement_places}">
+				<span th:text="${l.name}"></span>
+				<a th:href="@{'/admin/achievement/remove/' + ${l.idplace}}">usuń z listy</a>
+			</div>
+		</div>
+		<div>
+			<table>
+				<tr>
+					<td>Id</td>
+					<td>nazwa</td>
+					<td>kategoria</td>
+					<td></td>
+				</tr>
+					
+				<tr th:each="i : ${all_places}">
+					<td th:text="${i.idplace}"></td>
+					<td th:text="${i.name}"></td>
+					<td th:text="${i.category}"></td>
+					<td>
+						<a th:href="@{'/admin/achievement/add/' + ${i.idplace}}">Dodaj</a>
+					</td>
+				</tr>
+			</table>
+		
+		</div>
+	</section>
+</body>
+</html>

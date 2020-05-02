@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body{
+	background-color: #f3f7e4;
+}
+
+header{
+	background-color: #49495A;
+	overflow: auto;
+	height: 40px;
+}
+
+aside{
+	position: sticky;
+	width: 20%;
+	min-height: 500px;
+	background-color: #c17d11;
+	float: left;
+	
+}
+
+#content{
+	width: 78%;
+	float: left;
+	padding: 1%;
+}

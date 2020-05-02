@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/test.css" />
+</head>
+<body>
+	<a th:href="@{/}">Głowna</a>
+	<div>
+		<div th:each="i : ${os_list}">
+			<p>Zdobłeś osiągnięcie <span th:text="${i.name}"></span></p>
+		</div>
+		
+	
+		<form method="post">
+			<select name="place">
+				<option th:each="i : ${places}" th:value="${i.idplace}" th:text="${i.name}"></option>
+			</select>
+			<button type="submit">Dodaj</button>
+		</form>
+		
+		<div th:each="i : ${user_visited}">
+			<p th:text="${i.idplace}"></p>
+			<p th:text="${i.date}"></p>
+		</div>
+	</div>
+</body>
+</html>

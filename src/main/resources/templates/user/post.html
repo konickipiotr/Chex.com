@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/test.css" />
+</head>
+<body>
+
+	<div>
+		<p th:text="${ppv.date}"></p>
+		<p th:text="${ppv.name}"></p>
+		
+		<p th:text="${ppv.placename}"></p>
+		<p th:text="${ppv.content}"></p>
+		
+		<div id="album">
+			<div class="photoborder" th:each="p : ${ppv.photos}">
+				<img class="photo" th:src="@{${p.photourl}}">
+			</div>
+		</div>
+		
+		<div id="coments" th:each="c : ${ppv.coments}">
+			<div class="comment">
+				<p><span>User: </span><span th:text="${c.userid}"></span> <span>  </span><span th:text="${c.timestamp}"></span></p>
+				<p th:text="${c.content}">
+			</div>
+		</div>
+			
+	</div>
+</body>
+</html>

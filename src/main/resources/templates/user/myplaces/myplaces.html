@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="stylesheet" type="text/css" href="/css/test.css" />
+<link rel="stylesheet" type="text/css" href="/css/main_style.css" />
+<link rel="stylesheet" type="text/css" href="/css/top_style.css" />
+</head>
+<body>
+	<header th:replace="user/fragments/top :: top"></header>
+	<aside th:replace="user/fragments/menu :: menu"></aside>
+	
+	<section id="content">
+	
+	<div th:each="i : ${myPlaces}">
+		<span th:text="${i.name}"></span>
+	</div>
+	
+	<form th:action="@{/places}" method="post">
+		<input type="hidden" name="id" th:value="${id}">
+		<label for="places" th:text="#{msg.choosePlace}"></label>
+		<select name="place">
+			<option th:each="i : ${allplaces}" th:value="${i.idplace}" th:text="${i.name}"></option>
+		</select>
+		<button type="submit" th:text="#{button.check}"></button>
+	</form>
+		
+	</section>
+</body>
+</html>

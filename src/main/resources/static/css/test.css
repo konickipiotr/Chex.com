@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.postlink{
+	display: block;
+	text-decoration: none;
+}
+
+.post{
+	width: 90%;
+	margin: auto;
+	padding: 1%;
+	background-color: #dce6f5;
+	overflow: auto;
+}
+
+.postphotodiv{
+	width: 50%;
+	float: left;
+	
+}
+
+.postphoto{
+	width: 90%;
+	height: 90%;
+	border-radius: 10px;
+}
+
+#album{
+	width: 80%;
+	overflow: auto;
+	background-color: #dce6f5;
+	margin: auto;
+	padding: 2%;
+}
+
+.photoborder{
+	width: 48%;
+	height: auto;
+	float: left;'
+}
+
+.photo{
+	width: 90%;
+	height: 90%;
+	border-radius: 10px;
+}
+
+#coments{
+	width: 80%;
+	overflow: auto;
+	background-color: #ad7fa8;
+	margin: auto;
+	padding: 2%;
+	
+}
+

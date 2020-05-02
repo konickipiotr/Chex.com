@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.top_link:link{
+	display: block;
+	width: 100px;
+	height: 100%;
+	float: right;
+	background-color: #7f92a1;"
+	color: #ffffff;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.top_link:visited {
+	display: block;
+	width: 100px;
+	height: 100%;
+	float: right;
+	background-color: #7f92a1;"
+	color: #ffffff;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.top_link:hover {
+	display: block;
+	width: 100px;
+	height: 100%;
+	float: right;
+	background-color: #e0e7ff;
+	color: #00000;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+}
+

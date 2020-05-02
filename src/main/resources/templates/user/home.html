@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="stylesheet" type="text/css" href="/css/test.css" />
+<link rel="stylesheet" type="text/css" href="/css/main_style.css" />
+<link rel="stylesheet" type="text/css" href="/css/top_style.css" />
+</head>
+<body>
+	<header th:replace="user/fragments/top :: top"></header>
+	<aside th:replace="user/fragments/menu :: menu"></aside>
+	
+	<section id="content">
+		<div th:each="p : ${posts}" class="post">
+			<a class="postlink" th:href="@{'/post/' + ${p.postid}}">
+				<div class="postphotodiv"><img class="postphoto" alt="" th:src="@{${p.photourl}}"></div>
+				<h3 th:text="${p.name}"></h3>
+				<div class="postarea">
+					<p th:text="${p.date}"></p>
+					<p><span>Zdobył(a): </span> <a th:href="@{${p.pathname}}" th:text="${p.elementname}"></a></p>
+				</div>
+			</a>
+		</div>	
+	</section>
+</body>
+</html>

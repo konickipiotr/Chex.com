@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/test.css" />
+<link rel="stylesheet" type="text/css" href="/css/main_style.css" />
+<link rel="stylesheet" type="text/css" href="/css/top_style.css" />
+</head>
+<body>
+	<header th:replace="admin/fragments/top :: top"></header>
+	<aside th:replace="admin/fragments/menu :: menu"></aside>
+	<section id="content">
+	
+	<div>
+		<p><span th:text="${parentPlace.name}"></span> <span th:text="${parentPlace.idplace}"></span></p>
+		
+		<form th:action="@{/admin/addplace/newplace}" method="post" th:object="${newPlaceForm}">
+			<input type="hidden" name="parentid" th:value="${parentPlace.idplace}">
+		
+			Id: <span th:text="${#strings.substring(parentPlace.idplace,0, 11)}"></span>
+			<input type="text" required size="4" minlength="4" maxlength="4" id="id" name="id" th:field="*{newid}"><br>
+			
+			<label for="name">Nazwa</label>
+			<input type="text" required id="name" name="name" th:field="*{name}"><br>
+			
+			<label for="latitude">Szerokość geograficzna</label>
+			<input type="number" min="-90" max="90" step="0.000001" required id="latitude" name="latitude" th:field="*{latitude}"><br>
+			
+			<label for="longitude">Długość geograficzna</label>
+			<input type="number" min="-180" max="180" step="0.000001" required id="longitude" name="longitude" th:field="*{longitude}"><br>
+			
+			<label for="radius">Promoiń</label>
+			<input type="number" min="0" step="1" required id="radius" name="radius" th:field="*{radius}"><br>
+			
+			<label for="imgurl">img</label>
+			<input type="text" id="imgurl" name="imgurl" th:field="*{imgurl}"><br>
+			
+			<label for="points">Punkty</label>
+			<input type="number" min="0" step="1" id="points" name="points" th:field="*{points}"><br>
+			
+			<label for="difficultylevel">Poziom trudności</label>
+			<input type="number" min="0" step="1" max="6" id="difficultylevel" name="difficultylevel" th:field="*{difficultylevel}"><br>
+			
+			<label for="category">Kategoia</label>
+			<select id="category" name="category">
+				<option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.category}"></option>
+			</select><br>
+			
+			<label for="description">Opis</label>
+			<textarea name="description" id="description"th:field="*{description}"></textarea>
+			
+			<button type="submit">Dodaj</button>
+	
+		</form>
+	</div>
+	</section>
+</body>
+</html>

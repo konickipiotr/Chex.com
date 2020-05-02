@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/test.css" />
+<link rel="stylesheet" type="text/css" href="/css/main_style.css" />
+<link rel="stylesheet" type="text/css" href="/css/top_style.css" />
+
+</head>
+<body>
+	<header th:replace="admin/fragments/top :: top"></header>
+	<aside th:replace="admin/fragments/menu :: menu"></aside>
+	<section id="content">
+	
+		<h1>Wszystkie Osiągnięcia</h1>
+		
+		<table>
+			<tr th:each="i : ${achievementView_list}">
+				<td th:text="${i.name}"></td>
+				<td th:text="${i.points}"></td>
+				<td th:text="${i.imgurl}"></td>
+				<td th:text="${i.group}"></td>
+				<td th:text="${i.description}"></td>
+				<td th:text="${i.max}"></td>
+				<td>
+					<p th:each="a : ${i.places}" th:text="${a.name}"></p>
+				</td>
+			</tr>
+		
+		</table>
+	</section>
+</body>
+</html>

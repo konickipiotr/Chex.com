@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{appName}"></title>
+</head>
+<body>
+	<aside th:fragment="menu">
+
+		<a th:href="@{/admin/}">Główna</a><br>
+		<a th:href="@{/admin/achievement}">Osiągnięcia</a><br>
+		<a th:href="@{/admin/addplace}">Nowe miejsca</a><br>
+		
+	</aside>
+</body>
+</html>
